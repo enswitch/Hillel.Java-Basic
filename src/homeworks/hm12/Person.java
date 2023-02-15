@@ -1,10 +1,10 @@
 package homeworks.hm12;
 
 public class Person {
-    String name;
-    String surname;
-    String city;
-    String phone;
+    private String name;
+    private String surname;
+    private String city;
+    private String phone;
 
     Person(String name, String surname, String city, String phone) {
         this.name = name;
@@ -13,11 +13,42 @@ public class Person {
         this.phone = phone;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public String personInfo() {
-        String a = "Зателефонувати громадянину ";
-        String b = " із міста ";
-        String c = " можна за номером ";
-        String result = a + this.name + " " + this.surname + b + this.city + c + this.phone;
+        String result = "Зателефонувати громадянину " + this.name + " " + this.surname;
+        result += " із міста " + this.city;
+        result += " можна за номером " + this.phone;
         System.out.println(result);
         return result;
     }
