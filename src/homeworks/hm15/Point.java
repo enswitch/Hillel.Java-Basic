@@ -3,40 +3,40 @@ package homeworks.hm15;
 import java.util.Objects;
 
 public class Point implements Cloneable {
-    private int coordinateX;
-    private int coordinateY;
+    private int x;
+    private int y;
 
     public Point(Point point) {
-        this.coordinateX = point.coordinateX;
-        this.coordinateY = point.coordinateY;
+        this.x = point.x;
+        this.y = point.y;
     }
 
-    public Point(int coordinateX, int coordinateY) {
-        this.coordinateX = coordinateX;
-        this.coordinateY = coordinateY;
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
-    public int getCoordinateX() {
-        return coordinateX;
+    public int getX() {
+        return x;
     }
 
-    public void setCoordinateX(int coordinateX) {
-        this.coordinateX = coordinateX;
+    public void setX(int x) {
+        this.x = x;
     }
 
-    public int getCoordinateY() {
-        return coordinateY;
+    public int getY() {
+        return y;
     }
 
-    public void setCoordinateY(int coordinateY) {
-        this.coordinateY = coordinateY;
+    public void setY(int y) {
+        this.y = y;
     }
 
     @Override
     public String toString() {
         return "Point: " +
-                "x =" + coordinateX +
-                ", y =" + coordinateY;
+                "x =" + x +
+                ", y =" + y;
     }
 
     @Override
@@ -44,9 +44,14 @@ public class Point implements Cloneable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Point other = (Point) o;
-        if (!Objects.equals(coordinateX, other.coordinateX)) return false;
-        if (!Objects.equals(coordinateY, other.coordinateY)) return false;
+        if (!Objects.equals(x, other.x)) return false;
+        if (!Objects.equals(y, other.y)) return false;
         return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 
     @Override
@@ -55,18 +60,18 @@ public class Point implements Cloneable {
     }
 
     public static int distanceBetweenPoints(Point a, Point b) {
-        int result = (int) Math.sqrt((b.coordinateY - a.coordinateY) * (b.coordinateY - b.coordinateY)
-                + (b.coordinateX - a.coordinateX) * (b.coordinateX - a.coordinateX));
-        System.out.println("The distance between points is: " + result);
+        int result = (int) Math.sqrt((b.y - a.y) * (b.y - a.y) + (b.x - a.x) * (b.x - a.x));
+        if (a == null || b == null) {
+            throw new IllegalArgumentException("Create point with whole numbers only!");
+        } else if (a.x == b.x && a.y == b.y) {
+            System.out.println("Points have the same coordinates");
+        } else {
+            System.out.println("The distance between points is: " + result);
+        }
         return result;
     }
 
-
     public int distanceBetweenPoints(Point p) {
-        int result = (int) Math.sqrt((p.coordinateY - this.coordinateY) * (p.coordinateY - this.coordinateY)
-                + (p.coordinateX - this.coordinateX) * (p.coordinateX - this.coordinateX));
-        System.out.println("The distance between points is: " + result);
-        return result;
-
+        return Point.distanceBetweenPoints(this, p);
     }
 }

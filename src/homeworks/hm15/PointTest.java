@@ -1,32 +1,29 @@
 package homeworks.hm15;
 
-public class PointTest extends  Point{
+public class PointTest extends Point {
 
-    public PointTest(int coordinateX, int coordinateY) {
-        super(coordinateX, coordinateY);
+    public PointTest(int x, int y) {
+        super(x, y);
     }
 
     public static void main(String[] args) throws CloneNotSupportedException {
         Point point1 = new Point(2, 3);
-        Point point2 = new Point(1,2);
-        point2.setCoordinateX(2);
-        point2.setCoordinateY(3);
+        Point point2 = new Point(1, 2);
+        point2.setX(2);
+        point2.setY(3);
         Point point3 = new Point(5, 7);
 
-        distanceBetweenPoints(point1, point3); // two parameters
-        point1.distanceBetweenPoints(point3); // with one parameter (works but incorrectly!)
+        Point point4 = (Point) point3.clone();
+        System.out.println("Cloned point by method clone: " + point4.toString());
 
-        System.out.println(point1.equals(point2)); // overriding equals works
-        System.out.println(point1.equals(point3)); // the same
+        Point point5 = new Point(point4);
+        System.out.println("Cloned point by constructor clone: " + point5.toString());
 
-        Point point4 = (Point) point3.clone(); // overriding clone works, but here is repeating of throws in method clone and method main
-        System.out.println(point4.toString()); // overriding to string works
+        distanceBetweenPoints(point3, point5);
+        point1.distanceBetweenPoints(point3);
 
-        Point point5 = new Point(point4); // copy constructor works
-        System.out.println(point5.toString());
-
-
-
+        System.out.println("Are objects equals? " + point3.equals(point5));
+        System.out.println("Are objects equals? " + point3.equals(point2));
 
 
     }

@@ -22,7 +22,7 @@ public class FitnessTracker {
         this.userAge = 2020 - userYearOfBirth;
         this.userEmail = email;
         this.userPhone = phone;
-        this.setUserSurname(surname);
+        this.userSurname = surname;
         this.setUserWeight(weight);
         this.setUserPressure(pressure);
         this.setUserStepsPerDay(steps);
@@ -97,7 +97,7 @@ public class FitnessTracker {
         this.userStepsPerDay = userStepsPerDay;
     }
 
-    void printAccountInfo() {
+    public void printAccountInfo() {
         System.out.println("User info:");
         System.out.println("Name: " + this.userName);
         System.out.println("Surname: " + this.userSurname);
