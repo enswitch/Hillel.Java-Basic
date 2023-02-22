@@ -60,10 +60,11 @@ public class Point implements Cloneable {
     }
 
     public static int distanceBetweenPoints(Point a, Point b) {
-        int result = (int) Math.sqrt((b.y - a.y) * (b.y - a.y) + (b.x - a.x) * (b.x - a.x));
         if (a == null || b == null) {
             throw new IllegalArgumentException("Create point with whole numbers only!");
-        } else if (a.x == b.x && a.y == b.y) {
+        }
+        int result = (int) Math.sqrt((b.y - a.y) * (b.y - a.y) + (b.x - a.x) * (b.x - a.x));
+        if (a.x == b.x && a.y == b.y) {
             System.out.println("Points have the same coordinates");
         } else {
             System.out.println("The distance between points is: " + result);

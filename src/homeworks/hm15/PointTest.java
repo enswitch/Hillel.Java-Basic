@@ -19,7 +19,7 @@ public class PointTest extends Point {
         Point point5 = new Point(point4);
         System.out.println("Cloned point by constructor clone: " + point5.toString());
 
-        distanceBetweenPoints(point3, point5);
+        distanceBetweenPoints(point1, point2);
         point1.distanceBetweenPoints(point3);
 
         System.out.println("Are objects equals? " + point3.equals(point5));
